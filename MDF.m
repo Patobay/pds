@@ -6,32 +6,32 @@ fs = 8000;
 [s24k, fs24] = audioread('24khz.wav');
 [s32k, fs32] = audioread('32khz.wav');
 
-%GRAFICAR SEÑALES (Tiempo y Espectro)
+%GRAFICAR SEÃ‘ALES (Tiempo y Espectro)
 %{
 ESPACIO PARA los Graficos
 %}
 
-% Adecuación de la señal al estándar de banda base fijado por CCITT/ITU para telefonía fija (300 Hz a 3,4 KHz)
+% AdecuaciÃ³n de la seÃ±al al estÃ¡ndar de banda base fijado por CCITT/ITU para telefonÃ­a fija (300 Hz a 3,4 KHz)
 % Filtro Pasa Banda
-%Se generan los filtros a través del a herramienta de filtedesign (GUI) 
+%Se generan los filtros a travÃ©s de la herramienta de filtedesign (GUI) 
 
 s1 = filter(f16k1, s16k); 
 s2 = filter(f24k1, s24k); 
 s3 = filter(f32k1, s32k);
 
 
-%GRAFICAR SEÑALES (Tiempo y Espectro)
+%GRAFICAR SEÃ‘ALES (Tiempo y Espectro)
 %{
 ESPACIO PARA los Graficos
 %}
 
-%Se re-samplea (? a 8kHz las señales de banda base
+%Se re-samplea (? a 8kHz las seÃ±ales de banda base
 
 s1_8k = downsample(s1,2);
 s2_8k = downsample(s2,3);
 s3_8k = downsample(s3,4);
 
-%Falta fijar a 12-bits la resolución
+%Falta fijar a 12-bits la resoluciÃ³n
 
 %Se aumenta la cantidad de muestras a 120k
 s1_120k1 = upsample(s1_8k,15);
